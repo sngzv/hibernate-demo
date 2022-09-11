@@ -23,18 +23,20 @@ public class HibernateUtil {
                 Configuration configuration = new Configuration();
 
                 Properties properties = new Properties();
-                properties.setProperty(Environment.DRIVER, "org.postgresql.Driver");
-                properties.setProperty(Environment.URL, "jdbc:postgresql://localhost:5432/hiber_db");
-                properties.setProperty(Environment.USER, "admin");
-                properties.setProperty(Environment.PASS, "password");
-                properties.setProperty(Environment.DEFAULT_SCHEMA, "public");
+//                properties.setProperty(Environment.DRIVER, "org.postgresql.Driver");
+//                properties.setProperty(Environment.URL, "jdbc:postgresql://localhost:5432/hiber_db");
+//                properties.setProperty(Environment.USER, "admin");
+//                properties.setProperty(Environment.PASS, "password");
+//                properties.setProperty(Environment.DEFAULT_SCHEMA, "public");
+//
+//                properties.setProperty(Environment.HBM2DDL_AUTO, "update");
+//
+//                properties.setProperty(Environment.SHOW_SQL, "true");
+//                properties.setProperty(Environment.FORMAT_SQL, "true");
 
-                properties.setProperty(Environment.HBM2DDL_AUTO, "update");
+                properties.load(ClassLoader.getSystemClassLoader().getResourceAsStream("hibernate.properties"));
 
-                properties.setProperty(Environment.SHOW_SQL, "true");
-                properties.setProperty(Environment.FORMAT_SQL, "true");
-
-                configuration.setProperties(properties);
+                configuration.mergeProperties(properties);
 
 //                configuration.addAnnotatedClass(UserEntity.class);
                 configuration.addAnnotatedClass(Teacher.class);
