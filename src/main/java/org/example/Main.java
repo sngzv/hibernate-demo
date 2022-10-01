@@ -4,6 +4,7 @@ import org.example.dao.TeacherDAO;
 import org.example.entity.Teacher;
 import org.example.utill.HibernateUtil;
 
+//a
 public class Main {
     public static void main(String[] args) {
         TeacherDAO teacherDAO = new TeacherDAO();
