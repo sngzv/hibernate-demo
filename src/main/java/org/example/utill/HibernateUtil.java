@@ -1,5 +1,6 @@
 package org.example.utill;
 
+import org.example.entity.SequenceGeneratorEntity;
 import org.example.entity.Student;
 import org.example.entity.StudentCard;
 import org.example.entity.Teacher;
@@ -23,6 +24,7 @@ public class HibernateUtil {
                 configuration.addAnnotatedClass(University.class);
                 configuration.addAnnotatedClass(Student.class);
                 configuration.addAnnotatedClass(StudentCard.class);
+//                configuration.addAnnotatedClass(SequenceGeneratorEntity.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();

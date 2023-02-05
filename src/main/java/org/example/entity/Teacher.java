@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,7 +26,7 @@ public class Teacher {
 
     private String patronymic;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "university_id")
     private University university;
 
@@ -34,7 +36,7 @@ public class Teacher {
             joinColumns = { @JoinColumn(name = "teacher_id")},
             inverseJoinColumns = { @JoinColumn(name = "student_id")}
     )
-    private Set<Student> students;
+    private List<Student> students = new ArrayList<>();
 
     @Override
     public String toString() {

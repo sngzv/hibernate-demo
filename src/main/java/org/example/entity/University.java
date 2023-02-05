@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,10 +22,15 @@ public class University {
     private String name;
 
     @OneToMany(mappedBy = "university")
-    private Set<Teacher> teachers;
+    private Set<Teacher> teachers = new HashSet<>();
 
-    @OneToMany(mappedBy = "university")
-    private Set<Student> students;
+//    @OneToMany(mappedBy = "university")
+//    private Set<Student> students;
+
+    public void addTeacher(Teacher teacher) {
+        this.teachers.add(teacher);
+        teacher.setUniversity(this);
+    }
 
     @Override
     public String toString() {
